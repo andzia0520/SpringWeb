@@ -8,9 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class TrelloClient {
@@ -33,8 +31,8 @@ public class TrelloClient {
         return UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/" + trelloUserName + "/boards")
                 .queryParam("key", trelloAppKey)
                 .queryParam("token", trelloToken)
-                .queryParam("fields", "name,id")
-                .queryParam("search","Kodilla").build().encode().toUri();
+                .queryParam("fields", "name,id").build().encode().toUri();
+
     }
 
     public List<TrelloBoardDto> getTrelloBoards() {
