@@ -1,5 +1,6 @@
 package com.crud.tasks.mapper;
 
+import com.crud.tasks.domain.TrelloBadges;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -15,10 +16,13 @@ public class CreatedTrelloCard {
     @JsonProperty("id")
     private String id;
 
-    @JsonProperty("name")
+    /*@JsonProperty("name")
     private String name;
 
     @JsonProperty("shortUrl")
-    private String shortUrl;
+    private String shortUrl;*/
+
+    @JsonProperty("badges")
+    private TrelloBadges badges;
 
 }
