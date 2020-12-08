@@ -10,14 +10,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TrelloListDto {
-    @JsonProperty("id")
-    private String id;
+public class TrelloBadges {
 
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("votes")
+    private int votes;
 
-    @JsonProperty("closed")
-    private boolean isClosed;
-
+    @JsonProperty("attachmentsByType")
+    private TrelloAttachmentByType attachmentsByType;
 }
