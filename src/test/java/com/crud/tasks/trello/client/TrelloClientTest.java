@@ -2,7 +2,6 @@ package com.crud.tasks.trello.client;
 
 import com.crud.tasks.config.TrelloConfig;
 import com.crud.tasks.domain.TrelloBoardDto;
-
 import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.mapper.CreatedTrelloCard;
 import org.junit.Before;
@@ -15,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -38,7 +38,7 @@ public class TrelloClientTest {
         when(trelloConfig.getTrelloToken()).thenReturn("test");
     }
 
-    /*@Test
+@Test
     public void shouldFetchTrelloBoards() throws URISyntaxException {
         //Given
         TrelloBoardDto[] trelloBoards = new TrelloBoardDto[1];
@@ -56,7 +56,8 @@ public class TrelloClientTest {
         assertEquals("test_board", fetchedTrelloBoards.get(0).getName());
         assertEquals(new ArrayList<>(), fetchedTrelloBoards.get(0).getLists());
     }
-*/
+
+
     @Test
     public void shouldCreateCard() throws URISyntaxException {
         //Given
