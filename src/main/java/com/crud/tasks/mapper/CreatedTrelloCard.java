@@ -16,13 +16,13 @@ public class CreatedTrelloCard {
     @JsonProperty("id")
     private String id;
 
-    /*@JsonProperty("name")
+    @JsonProperty("name")
     private String name;
 
     @JsonProperty("shortUrl")
-    private String shortUrl;*/
+    private String shortUrl;
 
-    @JsonProperty("badges")
-    private TrelloBadges badges;
+/*    @JsonProperty("badges")
+    private TrelloBadges badges;*/
 
 }
