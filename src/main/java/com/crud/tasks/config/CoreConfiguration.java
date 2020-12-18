@@ -19,7 +19,7 @@ public class CoreConfiguration implements WebMvcConfigurer {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
-    }
+    }git add *
 
     @Bean
     public Docket api() {
