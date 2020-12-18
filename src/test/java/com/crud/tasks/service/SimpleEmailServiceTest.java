@@ -1,4 +1,3 @@
-/*
 package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Mail;
@@ -41,4 +40,4 @@ public class SimpleEmailServiceTest {
         //Then
         verify(javaMailSender, times(1)).send(mailMessage);
     }
-}*/
+}
