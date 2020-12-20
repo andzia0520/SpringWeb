@@ -23,10 +23,8 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-
     private String createMessage() {
-        long size = taskRepository.count();
-        return size != 1 ? "Currently in database you got: " + size + " tasks" : "Currently in database you got: " + size + " task";
+        return "Currently in database you got: " + taskRepository.count() + (taskRepository.count() == 1 ? "task" : "tasks");
     }
 
     @Scheduled(fixedDelay = 10000)
