@@ -23,8 +23,8 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    private String createMessage() {
-        return "Currently in database you got: " + taskRepository.count() + (taskRepository.count() == 1 ? "task" : "tasks");
+    private String createMessage(long size) {
+        return "Currently in database you got: " + size + (size == 1 ? "task" : "tasks");
     }
 
     @Scheduled(fixedDelay = 10000)
@@ -32,6 +32,6 @@ public class EmailScheduler {
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                createMessage()));
+                createMessage(taskRepository.count())));
     }
 }
