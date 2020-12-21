@@ -23,6 +23,7 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
+
     private String createMessage(long size) {
         return "Currently in database you got: " + size + (size == 1 ? "task" : "tasks");
     }
