@@ -6,13 +6,16 @@ import com.crud.tasks.domain.TrelloList;
 import com.crud.tasks.domain.TrelloListDto;
 
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@RunWith(MockitoJUnitRunner.class)
 public class TrelloFacadeTest {
 
     @InjectMocks
@@ -44,6 +47,6 @@ public class TrelloFacadeTest {
 
 
     @Test
-    void shouldCreateCard() {
+    public void shouldCreateCard() {
     }
 }
