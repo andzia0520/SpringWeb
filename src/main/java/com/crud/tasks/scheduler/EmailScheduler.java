@@ -30,9 +30,10 @@ public class EmailScheduler {
 
     @Scheduled(fixedDelay = 10000)
     public void sendInformationEmail() {
+       final long size = taskRepository.count();
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                createMessage(taskRepository.count())));
+                createMessage(size)));
     }
 }
