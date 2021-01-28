@@ -52,7 +52,6 @@ public class MailCreatorService {
         Context context = new Context();
         context.setVariable("message", message);
         context.setVariable("admin_config", adminConfig);
-
         context.setVariable("company_name", companyConfig.getCompanyName());
         context.setVariable("company_goal", companyConfig.getCompanyGoal());
         context.setVariable("company_email", companyConfig.getCompanyEmail());
