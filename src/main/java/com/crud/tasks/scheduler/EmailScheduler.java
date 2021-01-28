@@ -25,7 +25,7 @@ public class EmailScheduler {
 
 
     private String createMessage(long size) {
-        return "Currently in database you got: " + size + (size == 1 ? "task" : "tasks");
+        return "Currently in database you got: " + size + (size == 1 ? " task" : " tasks");
     }
 
     @Scheduled(fixedDelay = 10000/* cron = "0 0 10 * * *"*/)
