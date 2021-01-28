@@ -15,7 +15,7 @@ public class EmailScheduler {
     @Autowired
     private MailService mailService;
 
-    @Scheduled(fixedDelay = 10000/* cron = "0 0 10 * * *"*/)
+    @Scheduled(/*fixedDelay = 10000*/ cron = "0 0 10 * * *")
     public void sendInformationEmail() {
         mailService.sendQtyEmail(taskRepository.count());
         mailService.sendCreatedTrelloCardEmail();
