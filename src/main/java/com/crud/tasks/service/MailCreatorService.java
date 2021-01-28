@@ -47,4 +47,17 @@ public class MailCreatorService {
         context.setVariable("company_phone", companyConfig.getCompanyPhone());*/
         return templateEngine.process("mail/created-trello-card-mail", context);
     }
+
+    public String buildTasksQtyEmail(String message) {
+        Context context = new Context();
+        context.setVariable("message", message);
+        context.setVariable("admin_config", adminConfig);
+
+        context.setVariable("company_name", companyConfig.getCompanyName());
+        context.setVariable("company_goal", companyConfig.getCompanyGoal());
+        context.setVariable("company_email", companyConfig.getCompanyEmail());
+        context.setVariable("company_phone", companyConfig.getCompanyPhone());
+
+        return templateEngine.process("mail/cratead-tasksqty-email", context);
+    }
 }
