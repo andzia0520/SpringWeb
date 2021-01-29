@@ -22,7 +22,6 @@ public class SimpleEmailService {
         try {
             javaMailSender.send(createMimeMessage(mail));
             LOGGER.info("Email with subject {} has been sent.", mail.getSubject());
-
         } catch (MailException e) {
             LOGGER.error("Failed to process email sending: ", e.getMessage(), e);
         }

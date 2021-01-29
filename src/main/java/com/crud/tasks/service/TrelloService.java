@@ -18,16 +18,10 @@ public class TrelloService {
     private static final String SUBJECT = "Tasks: New Trello card";
 
     @Autowired
-    private MailCreatorService mailCreatorService;
-
-    @Autowired
     private TrelloClient trelloClient;
 
     @Autowired
-    private SimpleEmailService emailService;
-
-    @Autowired
-    private AdminConfig adminConfig;
+    private MailService mailService;
 
     public List<TrelloBoardDto> fetchTrelloBoards() {
         return trelloClient.getTrelloBoards();
@@ -35,10 +29,7 @@ public class TrelloService {
 
     public CreatedTrelloCardDto createTrelloCard(final TrelloCardDto trelloCardDto) {
         CreatedTrelloCardDto newCard = trelloClient.createNewCard(trelloCardDto);
-        ofNullable(newCard).ifPresent(cart -> emailService.send(new Mail(
-                adminConfig.getAdminMail(),
-                SUBJECT,
-                mailCreatorService.buildTrelloCardEmail("New card: " + trelloCardDto.getName() + " has been created on your Trello account"))));
-        return newCard;
+        ofNullable(newCard).ifPresent(cart -> mailService.sendCreatedTrelloCardEmail());
+    return newCard;
     }
 }
