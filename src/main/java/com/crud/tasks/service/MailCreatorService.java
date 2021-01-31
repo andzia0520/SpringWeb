@@ -56,7 +56,6 @@ public class MailCreatorService {
         context.setVariable("company_goal", companyConfig.getCompanyGoal());
         context.setVariable("company_email", companyConfig.getCompanyEmail());
         context.setVariable("company_phone", companyConfig.getCompanyPhone());
-
         return templateEngine.process("mail/cratead-tasksqty-email", context);
     }
 }
