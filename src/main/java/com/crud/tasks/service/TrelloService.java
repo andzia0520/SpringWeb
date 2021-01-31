@@ -1,7 +1,5 @@
 package com.crud.tasks.service;
 
-import com.crud.tasks.config.AdminConfig;
-import com.crud.tasks.domain.Mail;
 import com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.mapper.CreatedTrelloCardDto;
@@ -15,13 +13,12 @@ import static java.util.Optional.ofNullable;
 
 @Service
 public class TrelloService {
-    private static final String SUBJECT = "Tasks: New Trello card";
+
+    @Autowired
+    private MailCreatorService mailCreatorService;
 
     @Autowired
     private TrelloClient trelloClient;
-
-    @Autowired
-    private MailService mailService;
 
     public List<TrelloBoardDto> fetchTrelloBoards() {
         return trelloClient.getTrelloBoards();
@@ -29,7 +26,8 @@ public class TrelloService {
 
     public CreatedTrelloCardDto createTrelloCard(final TrelloCardDto trelloCardDto) {
         CreatedTrelloCardDto newCard = trelloClient.createNewCard(trelloCardDto);
-        ofNullable(newCard).ifPresent(cart -> mailService.sendCreatedTrelloCardEmail());
-    return newCard;
+        ofNullable(newCard).ifPresent(cart ->
+                mailCreatorService.buildTrelloCardEmail("New card: " + trelloCardDto.getName() + " has been created on your Trello account"));
+        return newCard;
     }
 }
