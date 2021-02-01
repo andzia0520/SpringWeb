@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class MailService {
     private static final String QTY_EMAIL_SUBJECT = "Tasks: Once a day email";
     private static final String CREATED_TRELLOCARD_SUBJECT = "New TrelloCard";
+
     @Autowired
     private MailCreatorService mailCreatorService;
 
@@ -23,7 +24,7 @@ public class MailService {
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 QTY_EMAIL_SUBJECT,
-                mailCreatorService.buildTasksQtyEmail("" + tasksCount)));
+                mailCreatorService.buildTasksQtyEmail(tasksCount)));
     }
 
     public void sendCreatedTrelloCardEmail(TrelloCardDto trelloCardDto) {
